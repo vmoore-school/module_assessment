@@ -1,7 +1,7 @@
 def start(quiz): # Question layout: {"Question": "How old is the sun?", "Answers": ("Dog", "I don't know", "At least one year"), "Correct Answers", (2)}
     point_counter = 0
     for question in quiz:
-        print(question["Question"])
+        print(f'\n{question["Question"]}')
 
         print("\nYour choices for answer are...")
         answer_count = 0
@@ -22,7 +22,7 @@ def start(quiz): # Question layout: {"Question": "How old is the sun?", "Answers
         else:
             print("\nIncorrect...")
         if user_answer not in question["Correct Answers"] or len(question["Correct Answers"]) > 1:
-            print("\n Correct answers were:")
+            print("\nCorrect answer(s) were:")
             for answer in question["Correct Answers"]:
                 print(f'Answer {answer+1}: {question["Answers"][answer]}')
             
