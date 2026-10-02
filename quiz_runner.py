@@ -1,4 +1,4 @@
-def start(quiz): # Question layout: {"Question": "How old is the sun?", "Answers": ("Dog", "I don't know", "At least one year"), "Answer", 2}
+def start(quiz): # Question layout: {"Question": "How old is the sun?", "Answers": ("Dog", "I don't know", "At least one year"), "Correct Answers", (2)}
     point_counter = 0
     for question in quiz:
         print(question["Question"])
@@ -11,14 +11,19 @@ def start(quiz): # Question layout: {"Question": "How old is the sun?", "Answers
 
         while True:
             try:
-                user_answer = int(input("\nEnter answer your answer: "))-1 #-1 to account for python counting from 0
+                user_answer = int(input("\nEnter answer your answer: "))-1 # We take one to account for python counting from 0
                 break
             except:
                 print("The answer you entered was not detected as a valid integer. Please only enter the number associated with your answer.")
 
-        if user_answer == question["Answer"]:
+        if user_answer in question["Correct Answers"]:
             print("\nCorrect! +1 point!")
             point_counter += 1
         else:
-            print("Incorrect...")
+            print("\nIncorrect...")
+        if user_answer not in question["Correct Answers"] or len(question["Correct Answers"]) > 1:
+            print("\n Correct answers were:")
+            for answer in question["Correct Answers"]:
+                print(f'Answer {answer+1}: {question["Answers"][answer]}')
+            
     return point_counter
