@@ -1,4 +1,4 @@
-gquizzes = ({
+quizzes = ({
     "Category": "Science & Nature",
     "Questions": (
         {"Question": "What is the chemical symbol for gold?", "Answers": ("Ag", "Au", "Gd"), "Correct Answers": (1,)},
